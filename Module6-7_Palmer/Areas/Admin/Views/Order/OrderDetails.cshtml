@@ -1,0 +1,44 @@
+﻿@model Module6_7_Palmer.Models.Order
+@{ ViewBag.Title = "Order Details";}
+
+<h2>Order Details</h2>
+
+<ul class="list-group">
+    <li class="list-group-item">
+        <label>Order Number:</label>
+        @Model.OrderID
+    </li>
+    <li class="list-group-item">
+        <label>Customer Name:</label>
+        @Model.Customer.CustomerFullName
+    </li>
+    <!--need foreach-->
+    <li class="list-group-item">
+        <label>Product(s):</label>
+        @Model.Product
+    </li>
+    <li class="list-group-item">
+        <label>Price:</label>
+        @Model.OrderPrice.ToString("C")
+    </li>
+    <li class="list-group-item">
+        <label>Order Date:</label>
+        @Model.OrderDate.ToShortDateString()
+    </li>
+    <li class="list-group-item">
+        <label>Delivery Date:</label>
+        @Model.DeliveryDate.ToShortDateString()
+    </li>
+    <li class="list-group-item">
+        <a asp-action="EditOrder" asp-controller="Administration"
+           asp-route-model="@ViewBag.Action" asp-route-type="@ViewBag.Type" asp-route-val="@Model.Slug">
+           class="btn btn-dark">Edit</a>
+
+        <a asp-action="DeleteOrder" asp-cpontroller="Administration"
+           asp-route-model="@ViewBag.Action" asp-route-type="@ViewBag.Type" asp-route-val="@Model.Slug">
+           class="btn btn-dark">Delete</a>
+
+        <a asp-action="Index" asp-controller="Home"
+           class="btn btn-dark">Home</a>
+    </li>
+</ul>

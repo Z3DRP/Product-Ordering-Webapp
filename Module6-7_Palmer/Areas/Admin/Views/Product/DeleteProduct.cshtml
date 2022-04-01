@@ -1,0 +1,17 @@
+﻿@model Module6_7_Palmer.Models.Product
+@{ ViewBag.Title = "Delete Product"; }
+
+<h2>Delete Product</h2>
+
+<form asp-action="DeleteProduct" method="post">
+
+    <p>
+        You are about to delete product <b>@Model.Name</b>. Do you wish to contiune?
+    </p>
+
+    <button type="submit" class="btn btn-danger">Yes</button>
+    <a asp-action="ProductDetails" asp-controller="Administration"
+       asp-route-model="@ViewBag.Action" asp-route-type="@ViewBag.Type" asp-route-val="@Model.Slug"
+       class="btn btn-dark">No</a>
+
+</form>

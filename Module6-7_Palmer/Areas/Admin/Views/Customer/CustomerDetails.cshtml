@@ -1,0 +1,47 @@
+﻿@model Module6_7_Palmer.Models.Customer
+@{ ViewBag.Title = "Customer Details";}
+
+<h2>Customer Details</h2>
+
+<ul class="list-group">
+    <li class="list-group-item">
+        <label>Name:</label>
+       @Model.CustomerFullName
+    </li>
+    <li class="list-group-item">
+        <label>Phone Number:</label>
+        @Model.PhoneNumber
+    </li>
+    <li class="list-group-item">
+        <label>Email:</label>
+        @Model.EmailAddress
+    </li>
+    <li class="list-group-item">
+        <label>Street:</label>
+        @Model.Street
+    </li>
+    <li class="list-group-item">
+        <label>City:</label>
+        @Model.City
+    </li>
+    <li class="list-group-item">
+        <label>State:</label>
+        @Model.State
+    </li>
+    <li class="list-group-item">
+        <lable>Zipcode:</lable>
+        @Model.Zipcode
+    </li>
+    <li class="list-group-item">
+        <a asp-action="EditCustomer" asp-controller="Administration"
+           asp-route-model="@ViewBag.Action" asp-route-type="@ViewBag.Type"
+           asp-route-val="@Model.Slug"class="btn btn-dark">Edit</a>
+
+        <a asp-action="DeleteCustomer" asp-controller="Administration"
+           asp-route-model="@ViewBag.Action" asp-route-type="@ViewBag.Type" asp-route-val="@Model.Slug"
+           class="btn btn-dark">Delete</a>
+
+        <a asp-action="Index" asp-controller="Home"
+           class="btn btn-dark">Home</a>
+    </li>
+</ul>
